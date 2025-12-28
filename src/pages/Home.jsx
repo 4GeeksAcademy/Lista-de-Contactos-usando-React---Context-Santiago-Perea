@@ -1,7 +1,7 @@
 import useGlobalReducer from "../hooks/useGlobalReducer.jsx";
 import { Contacto } from "../components/Contacto.jsx";
 import { useEffect, useContext } from "react";
-import  funciones from "../funciones.js"
+import  actions from "../funciones"
 
 export const Home = () => {
 
@@ -20,18 +20,18 @@ export const Home = () => {
 	}, [])*/
 
 	useEffect(() => {
-        funciones.getContactos();
+        actions.getContactos(dispatch);
     }, []);
+	console.log(store.contactos)
 
 	const numeroContactos = store.contactos.length;
 
 	return (
 		<div className="pb-5 ">
 			<div className="list-group">
-				{numeroContactos > 0 ? (
-					store.contactos.map(contacto => (
-						<Contacto key={contacto.id} contacto={contacto}/>)) ) : ( 
-				<p className="text-center">Tu Agenda tiene {numeroContactos} contactos.</p>)}
+				<p className="text-center">Tu Agenda tiene {numeroContactos} contacto(s).</p>
+				{store.contactos.map(contacto => (
+						<Contacto key={contacto.id} contacto={contacto}/>))}
 			</div>
 		</div>
 	);
