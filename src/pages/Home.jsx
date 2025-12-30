@@ -8,7 +8,7 @@ export const Home = () => {
 	const { store, dispatch } = useGlobalReducer()
 	// const { añadirContacto } = useContext(ContactContext)
 
-	/* useEffect(() => {
+	useEffect(() => {
 		fetch(`https://playground.4geeks.com/contact/agendas/lista_santiago`, {
 			method: 'POST',
 		})
@@ -17,7 +17,7 @@ export const Home = () => {
 				console.log(data))
 			.catch(error =>
 				console.log(error));
-	}, [])*/
+	}, [])
 
 	useEffect(() => {
         actions.getContactos(dispatch);

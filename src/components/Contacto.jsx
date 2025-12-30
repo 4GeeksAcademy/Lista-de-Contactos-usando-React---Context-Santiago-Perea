@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import fotoContacto from "../assets/img/rigo-baby.jpg";
 import actions from "../funciones"
 
-export const Contacto = (contacto) => {
+export const Contacto = ({contacto}) => {
     const { store, dispatch } = useGlobalReducer();
     console.log("Contacto id:", contacto.id);
     return (
